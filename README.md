@@ -1,4 +1,4 @@
-# hexo-theme-xoxo
+# dean
 
 Hexo theme inspired by [microb](https://github.com/microacup/hexo-theme-micorb) 
 
@@ -61,7 +61,7 @@ baidu_analytics: FuckUBaidu
 #footer
 index_page: https://blog.0xff000000.com
 main_site: https://0xff000000.com
-github: https://github.com/KevinOfNeu
+github: https://github.com/blackAzrael
 
 ```
 
