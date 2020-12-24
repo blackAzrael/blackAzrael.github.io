@@ -12,7 +12,7 @@
     
     
     
-    <title>archive_a | dean的博客</title>
+    <title>scan | dean的博客</title>
     <link href="https://blackazrael.github.io" rel="prefetch" />
 
     
@@ -109,7 +109,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -184,19 +184,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="https://blackazrael.github.io">dean的博客</a>
         >
-        <span>归档</span>
+        <span>scan</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2020/12/24/scan/">scan</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-12-24
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -204,35 +212,59 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2020/12/24/scan/">scan</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-12-24
+            </p>
+            <p>
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2020年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2020/12/24/scan/">scan</a>
-                        <br>
-            
-             
-                        <a href="/2020/12/18/dalao%E5%8D%9A%E5%AE%A2%E6%95%B4%E7%90%86/">dalao博客整理</a>
-                        <br>
-            
-             
-                        <a href="/2020/12/17/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <h1 id="网站漏洞扫描器"><a href="#网站漏洞扫描器" class="headerlink" title="网站漏洞扫描器"></a>网站漏洞扫描器</h1><blockquote>
+<p>看了网上很多的开源扫描器，有很多的插件都是python2编写。并且大部分发包都是使用for循环等串行发包形式。该方式在批量大范围扫描的情况下，速度非常的慢，没有用到python协程的特性。</p>
+<p>本扫描器使用python3开发，全程使用asyncio,使用python3的新特性，解决requests等发包阻塞主线程的问题，在扫描器的层面基于scrapy，并重写scrapy重写组件，都使用python3 async await，异步的方式，下载器使用aiohttp,经过测试可以轻松实现日百万请求</p>
+<p>本扫描器实现分布式扫描，可扫描网站漏洞，违法网站信息，可自定义插件扫描模块,实现对违法网站的截图功能。</p>
+<p>开发环境 python3.8.3</p>
+<p>编译器 pycharm</p>
+</blockquote>
+<h2 id="首页概览展示"><a href="#首页概览展示" class="headerlink" title="首页概览展示"></a>首页概览展示</h2><p><img src="scan/1608801254997.png"></p>
+<h2 id="任务下发功能展示"><a href="#任务下发功能展示" class="headerlink" title="任务下发功能展示"></a>任务下发功能展示</h2><blockquote>
+<p>任务下发支持段扫描，可以选择端口，配置扫描速率，集成masscan</p>
+<p>支持的功能：</p>
+<p>违法网站检查<br>网站基本信息查询<br>网站CMS信息查询和漏洞（集成6000+CMS识别指纹，识别指纹后在进行对应的poc扫描，极大的减少对网站的压力）<br>暗链查询<br>挂马检测<br>sql 注入漏洞检测<br>SQL 盲注<br>SQL 盲注 时间<br>XpathInjection<br>目录穿越检测<br>XSS漏洞<br>CSRF 注入漏洞检测<br>后台地址泄漏<br>敏感文件检测<br>违法关键词检查<br>ICP 备案查询<br>域名劫持域名跳转<br>违法网站检查(机器学习)<br>WebServer任意文件读取</p>
+</blockquote>
+<p><img src="scan/1608803173969.png"></p>
+<p><img src="scan/1608803244829.png"></p>
+<h2 id="违法网站展示"><a href="#违法网站展示" class="headerlink" title="违法网站展示"></a>违法网站展示</h2><p><img src="scan/1608803303051.png"></p>
+<p><img src="scan/1608803356132.png"></p>
+<p><img src="scan/1608803384484.png"></p>
+<p><img src="scan/1608803646095.png"></p>
+<p><img src="scan/1608803686360.png"></p>
+<h2 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h2><p><img src="scan/1608803766193.png"></p>
+<p><img src="scan/1608803841297.png"></p>
+<p><img src="scan/1608803879560.png"></p>
+<p><img src="scan/1608803909560.png"></p>
+<p><img src="scan/1608803932376.png"></p>
+<h2 id="违法关键词管理"><a href="#违法关键词管理" class="headerlink" title="违法关键词管理"></a>违法关键词管理</h2><p><img src="scan/1608803963882.png"></p>
+<h2 id="任务下发策略配置"><a href="#任务下发策略配置" class="headerlink" title="任务下发策略配置"></a>任务下发策略配置</h2><p><img src="scan/1608803999834.png"></p>
+<h2 id="插件信息"><a href="#插件信息" class="headerlink" title="插件信息"></a>插件信息</h2><p><img src="scan/1608804078004.png"></p>
+<h3 id="总插件数"><a href="#总插件数" class="headerlink" title="总插件数"></a>总插件数</h3><p>500+</p>
+<h3 id="插件支持格式"><a href="#插件支持格式" class="headerlink" title="插件支持格式"></a>插件支持格式</h3><p>json</p>
+<p>yuml</p>
+<h3 id="集成的开源扫描器"><a href="#集成的开源扫描器" class="headerlink" title="集成的开源扫描器"></a>集成的开源扫描器</h3><p>长亭xray</p>
+<p>projectdiscovery/nuclei</p>
+<p>kunpeng</p>
+<p>w3af</p>
+
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -351,17 +383,17 @@
 
                 
                 <li>
-                    <a href="/archives/2020/12/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2020/12/24/scan/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/2020/12/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2020/12/24/scan/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/2020/12/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2020/12/24/scan/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -369,9 +401,9 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%94%B6%E9%9B%86/" style="font-size: 17.62491664060964px;" class="tag-cloud-link">收集</a>
+    <a href="/tags/%E6%94%B6%E9%9B%86/" style="font-size: 17.108415949577235px;" class="tag-cloud-link">收集</a>
     
-    <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 12.598083579809678px;" class="tag-cloud-link">个人</a>
+    <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 16.580762565444047px;" class="tag-cloud-link">个人</a>
     
 </div>
                 

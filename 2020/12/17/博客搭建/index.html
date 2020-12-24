@@ -237,16 +237,14 @@
         </center>
     </div>
     <div class="content-article">
-        <h1 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h1><h2 id="框架hexo"><a href="#框架hexo" class="headerlink" title="框架hexo"></a>框架hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://hexo.io/zh-cn/</span><br></pre></td></tr></table></figure>
+        <h2 id="博客搭建"><a href="#博客搭建" class="headerlink" title="博客搭建"></a>博客搭建</h2><h2 id="框架hexo"><a href="#框架hexo" class="headerlink" title="框架hexo"></a>框架hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://hexo.io/zh-cn/</span><br></pre></td></tr></table></figure>
 <h3 id="hexo主题选择"><a href="#hexo主题选择" class="headerlink" title="hexo主题选择"></a>hexo主题选择</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://hexo.io/themes/</span><br></pre></td></tr></table></figure>
 <h3 id="当前主题"><a href="#当前主题" class="headerlink" title="当前主题"></a>当前主题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/ZEROKISEKI/hexo-theme-gal</span><br></pre></td></tr></table></figure>
-
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ZEROKISEKI/hexo-theme-gal.git themes/gal --depth 1</span><br><span class="line">cnpm install hexo-renderer-scss --save</span><br><span class="line">cnpm install hexo-generator-json-content --save</span><br></pre></td></tr></table></figure>
 <h4 id="修改hexo-根目录下-config-yml-文件"><a href="#修改hexo-根目录下-config-yml-文件" class="headerlink" title="修改hexo 根目录下 _config.yml 文件"></a>修改hexo 根目录下 _config.yml 文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: gal</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">接着在hexo站点目录的_config.yml下进行配置:</span><br><span class="line"></span><br><span class="line">jsonContent:</span><br><span class="line">  dateFormat: MM-DD</span><br><span class="line">  pages:</span><br><span class="line">    title: <span class="literal">true</span></span><br><span class="line">    text: <span class="literal">true</span></span><br><span class="line">    path: <span class="literal">true</span></span><br><span class="line">    date: <span class="literal">true</span></span><br><span class="line">    excerpt: <span class="literal">true</span></span><br><span class="line">    preview: <span class="literal">true</span></span><br><span class="line">  posts:</span><br><span class="line">    title: <span class="literal">true</span></span><br><span class="line">    text: <span class="literal">true</span></span><br><span class="line">    path: <span class="literal">true</span></span><br><span class="line">    date: <span class="literal">true</span></span><br><span class="line">    excerpt: <span class="literal">true</span></span><br><span class="line">    tags: [&#123;</span><br><span class="line">      name: tag.name,</span><br><span class="line">      slug: tag.slug,</span><br><span class="line">      permalink: tag.permalink</span><br><span class="line">    &#125;]</span><br><span class="line">    preview: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">接着, 进行下面的步骤:</span><br><span class="line"></span><br><span class="line">hexo new page <span class="string">&quot;search&quot;</span>              // 搜索功能的必须步骤</span><br><span class="line">hexo new page <span class="string">&quot;404&quot;</span>                 // 开启404页面</span><br><span class="line"></span><br><span class="line">至于tags和categories页面的设置, 百度或google就有对应的方法了, 这里就不多说了</span><br><span class="line"></span><br><span class="line">对了, hexo站点目录的_config.yml的title, description, author和url要自己正确配置</span><br></pre></td></tr></table></figure>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>将public下的整个文件夹直接上传到gayhub</p>
 
     </div>
@@ -310,6 +308,12 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2020/12/24/scan/">scan</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2020/12/18/dalao%E5%8D%9A%E5%AE%A2%E6%95%B4%E7%90%86/">dalao博客整理</a>
                 </span>
             </li>
@@ -339,6 +343,12 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2020/12/18/dalao%E5%8D%9A%E5%AE%A2%E6%95%B4%E7%90%86/">dalao博客整理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/12/24/scan/">scan</a>
                 </span>
             </li>
             
@@ -377,9 +387,9 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/%E6%94%B6%E9%9B%86/" style="font-size: 16.36615075085828px;" class="tag-cloud-link">收集</a>
+    <a href="/tags/%E6%94%B6%E9%9B%86/" style="font-size: 12.764333453576992px;" class="tag-cloud-link">收集</a>
     
-    <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 8.540827581195066px;" class="tag-cloud-link">个人</a>
+    <a href="/tags/%E4%B8%AA%E4%BA%BA/" style="font-size: 18.46312727590218px;" class="tag-cloud-link">个人</a>
     
 </div>
                 
