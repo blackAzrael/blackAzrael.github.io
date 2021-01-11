@@ -2,4 +2,4 @@
 
 ## 关于个人收集、安全方面的知识做一个系统的整理 
 
-http://blackAzrael.github.io
+https://blackAzrael.github.io
