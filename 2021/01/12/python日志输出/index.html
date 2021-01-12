@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blackazrael.github.io">
-  <title>tags | dean的博客</title>
+  <title>python日志输出 | dean的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="dean的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://blackazrael.github.io/tags/index.html">
+  <meta name="description" content="简介 Logging是python自带的模块，这个模块支持输出不同级别的日志，可以输出到控制台和写入文件，支持TCP、HTTP、GET&#x2F;POST、SMTP、Socket等协议，将日志信息发送到网络等等。 Logging提供5个等级的输出，CRITICAL &gt; ERROR &gt; WARNING &gt; INFO &gt; DEBUG &gt; NOTSET，如果把looger的级别设置为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python日志输出">
+<meta property="og:url" content="https://blackazrael.github.io/2021/01/12/python%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA/index.html">
 <meta property="og:site_name" content="dean的博客">
-<meta property="og:description" content="dean的博客">
+<meta property="og:description" content="简介 Logging是python自带的模块，这个模块支持输出不同级别的日志，可以输出到控制台和写入文件，支持TCP、HTTP、GET&#x2F;POST、SMTP、Socket等协议，将日志信息发送到网络等等。 Logging提供5个等级的输出，CRITICAL &gt; ERROR &gt; WARNING &gt; INFO &gt; DEBUG &gt; NOTSET，如果把looger的级别设置为">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-18T15:23:21.000Z">
-<meta property="article:modified_time" content="2021-01-08T04:48:20.725Z">
+<meta property="og:image" content="https://blackazrael.github.io/2021/01/12/python%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA/out1.png">
+<meta property="og:image" content="https://blackazrael.github.io/2021/01/12/python%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA/out2.png">
+<meta property="article:published_time" content="2021-01-12T12:14:54.000Z">
+<meta property="article:modified_time" content="2021-01-12T12:45:31.440Z">
 <meta property="article:author" content="dean">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blackazrael.github.io/2021/01/12/python%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA/out1.png">
   
     <link rel="alternative" href="/atom.xml" title="dean的博客" type="application/atom+xml">
   
@@ -154,27 +158,152 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-python日志输出" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      python日志输出
     </h1>
   
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2020-12-18T15:23:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-18</time>
+        <a href="/2021/01/12/python%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA/" class="archive-article-date">
+  	<time datetime="2021-01-12T12:14:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p> Logging是python自带的模块，这个模块支持输出不同级别的日志，可以输出到控制台和写入文件，支持TCP、HTTP、GET/POST、SMTP、Socket等协议，将日志信息发送到网络等等。</p>
+<p>Logging提供5个等级的输出，CRITICAL &gt; ERROR &gt; WARNING &gt; INFO &gt; DEBUG &gt; NOTSET，如果把looger的级别设置为INFO， 那么小于INFO级别的日志都不输出， 大于等于INFO级别的日志都输出</p>
+<p>logging库提供了多个组件：Logger、Handler、Filter、Formatter：</p>
+<pre><code>Logger      对象提供应用程序可直接使用的接口，供应用代码使用；
+Handler     发送日志到适当的目的地；
+Filter      提供了过滤日志信息的方法，控制输出； 
+Formatter  指定日志输出和显示的具体格式。</code></pre>
+<a id="more"></a>
+
+<h2 id="将日志同时输出到控制台和文件"><a href="#将日志同时输出到控制台和文件" class="headerlink" title="将日志同时输出到控制台和文件"></a>将日志同时输出到控制台和文件</h2><blockquote>
+<p>添加彩色日志输出 pip3 install colorlog</p>
+</blockquote>
+<blockquote>
+<p>添加日志滚动输出按天数切割</p>
+<blockquote>
+<p> TimedRotatingFileHandler</p>
+</blockquote>
+</blockquote>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> colorlog</span><br><span class="line"><span class="keyword">from</span> logging.handlers <span class="keyword">import</span> TimedRotatingFileHandler</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))</span><br><span class="line">ROOT_PATH = os.path.join(CURRENT_PATH, os.pardir)</span><br><span class="line">LOG_PATH = os.path.join(ROOT_PATH, <span class="string">&#x27;log&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    os.mkdir(LOG_PATH)</span><br><span class="line"><span class="keyword">except</span> FileExistsError:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LogHandler</span>(<span class="params">logging.Logger</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    LogHandler</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name, level=<span class="string">&#x27;DEBUG&#x27;</span>, stream=<span class="literal">True</span>, file=<span class="literal">True</span></span>):</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.level = level</span><br><span class="line">        logging.Logger.__init__(self, self.name, level=level)</span><br><span class="line">        <span class="keyword">if</span> stream:</span><br><span class="line">            self.__setStreamHandler__()</span><br><span class="line">        <span class="keyword">if</span> file:</span><br><span class="line">            self.__setFileHandler__()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__setFileHandler__</span>(<span class="params">self, level=<span class="literal">None</span></span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        set file handler</span></span><br><span class="line"><span class="string">        :param level:</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        file_name = os.path.join(LOG_PATH, <span class="string">&#x27;&#123;name&#125;.log&#x27;</span>.<span class="built_in">format</span>(name=self.name))</span><br><span class="line">        <span class="comment"># 设置日志回滚, 保存在log目录, 一天保存一个文件, 保留15天</span></span><br><span class="line">        file_handler = TimedRotatingFileHandler(filename=file_name, when=<span class="string">&#x27;D&#x27;</span>, interval=<span class="number">1</span>, backupCount=<span class="number">15</span>)</span><br><span class="line">        file_handler.suffix = <span class="string">&#x27;%Y%m%d.log&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> level:</span><br><span class="line">            file_handler.setLevel(self.level)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            file_handler.setLevel(level)</span><br><span class="line">        formatter = logging.Formatter(<span class="string">&#x27;%(asctime)s [%(filename)s][%(name)s][line:%(lineno)d] %(levelname)s %(message)s&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        file_handler.setFormatter(formatter)</span><br><span class="line">        self.file_handler = file_handler</span><br><span class="line">        self.addHandler(file_handler)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__setStreamHandler__</span>(<span class="params">self, level=<span class="literal">None</span></span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        set stream handler</span></span><br><span class="line"><span class="string">        :param level:</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        stream_handler = colorlog.StreamHandler()</span><br><span class="line">        formatter = colorlog.ColoredFormatter(<span class="string">&#x27;%(log_color)s%(asctime)s [%(filename)s][%(name)s][line:%(lineno)d] &#x27;</span></span><br><span class="line">                                              <span class="string">&#x27;%(levelname)s %(message)s&#x27;</span>, <span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)</span><br><span class="line">        stream_handler.setFormatter(formatter)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> level:</span><br><span class="line">            stream_handler.setLevel(self.level)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            stream_handler.setLevel(level)</span><br><span class="line">        self.addHandler(stream_handler)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">resetName</span>(<span class="params">self, name</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        reset name</span></span><br><span class="line"><span class="string">        :param name:</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.removeHandler(self.file_handler)</span><br><span class="line">        self.__setFileHandler__()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    log = LogHandler(<span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">    log.debug(<span class="string">&#x27;this is a test msg&#x27;</span>)</span><br><span class="line">    log.info(<span class="string">&#x27;this is a test msg&#x27;</span>)</span><br><span class="line">    log.warning(<span class="string">&#x27;this is a test msg&#x27;</span>)</span><br><span class="line">    log.error(<span class="string">&#x27;this is a test msg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="控制台输出"><a href="#控制台输出" class="headerlink" title="控制台输出"></a>控制台输出</h3><p><img src="/2021/01/12/python%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA/out1.png" alt="输出1"></p>
+<h3 id="文件输出"><a href="#文件输出" class="headerlink" title="文件输出"></a>文件输出</h3><p><img src="/2021/01/12/python%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA/out2.png" alt="输出1"></p>
+<h2 id="多进程python日志输出"><a href="#多进程python日志输出" class="headerlink" title="多进程python日志输出"></a>多进程python日志输出</h2><p>上面代码logging是单进程 线程安全输出 如果在多进程情况下日志滚动切割日期会存在竞争问题<br><br><br>重写系统自带滚动日志doRollover 模块<br><br><br>fork : <a target="_blank" rel="noopener" href="https://gist.github.com/tawateer/b33ff85bdcbe9cf1bcb1#file-parallel_timed_rotating_handler-py">https://gist.github.com/tawateer/b33ff85bdcbe9cf1bcb1#file-parallel_timed_rotating_handler-py</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ParallelTimedRotatingHandler</span>(<span class="params">TimedRotatingFileHandler</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">doRollover</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot; </span></span><br><span class="line"><span class="string">        do a rollover; in this case, a date/time stamp is appended to the </span></span><br><span class="line"><span class="string">        filename when the rollover happens.  However, you want the file to</span></span><br><span class="line"><span class="string">        be named for the start of the interval, not the current time.  </span></span><br><span class="line"><span class="string">        If there is a backup count, then we have to get a list of matching </span></span><br><span class="line"><span class="string">        filenames, sort them and remove the one with the oldest suffix.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> self.stream:</span><br><span class="line">            self.stream.close()</span><br><span class="line">        <span class="comment"># get the time that this sequence started at and make it a TimeTuple</span></span><br><span class="line">        t = self.rolloverAt - self.interval</span><br><span class="line">        <span class="keyword">if</span> self.utc:</span><br><span class="line">            timeTuple = time.gmtime(t)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            timeTuple = time.localtime(t)</span><br><span class="line">        dfn = self.baseFilename + <span class="string">&quot;.&quot;</span> + time.strftime(self.suffix, timeTuple)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(dfn):</span><br><span class="line">            os.rename(self.baseFilename, dfn)</span><br><span class="line">        <span class="keyword">if</span> self.backupCount &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># find the oldest log file and delete it</span></span><br><span class="line">            <span class="keyword">for</span> s <span class="keyword">in</span> self.getFilesToDelete():</span><br><span class="line">                os.remove(s)</span><br><span class="line">        self.mode = <span class="string">&#x27;a&#x27;</span></span><br><span class="line">        self.stream = self._open()</span><br><span class="line">        currentTime = <span class="built_in">int</span>(time.time())</span><br><span class="line">        newRolloverAt = self.computeRollover(currentTime)</span><br><span class="line">        <span class="keyword">while</span> newRolloverAt &lt;= currentTime:</span><br><span class="line">            newRolloverAt = newRolloverAt + self.interval</span><br><span class="line">        <span class="comment">#If DST changes and midnight or weekly rollover, adjust for this.</span></span><br><span class="line">        <span class="keyword">if</span> (self.when == <span class="string">&#x27;MIDNIGHT&#x27;</span> <span class="keyword">or</span> self.when.startswith(<span class="string">&#x27;W&#x27;</span>))\</span><br><span class="line">                <span class="keyword">and</span> <span class="keyword">not</span> self.utc:</span><br><span class="line">            dstNow = time.localtime(currentTime)[-<span class="number">1</span>]</span><br><span class="line">            dstAtRollover = time.localtime(newRolloverAt)[-<span class="number">1</span>]</span><br><span class="line">            <span class="keyword">if</span> dstNow != dstAtRollover:</span><br><span class="line">             <span class="comment"># DST kicks in before next rollover, so we need to deduct an hour</span></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> dstNow:  </span><br><span class="line">                    newRolloverAt = newRolloverAt - <span class="number">3600</span></span><br><span class="line">             <span class="comment"># DST bows out before next rollover, so we need to add an hour</span></span><br><span class="line">                <span class="keyword">else</span>:           </span><br><span class="line">                    newRolloverAt = newRolloverAt + <span class="number">3600</span></span><br><span class="line">        self.rolloverAt = newRolloverAt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="logging-basicConfig-函数中的具体参数"><a href="#logging-basicConfig-函数中的具体参数" class="headerlink" title="logging.basicConfig()函数中的具体参数"></a>logging.basicConfig()函数中的具体参数</h2><ul>
+<li>filename：   指定的文件名创建FiledHandler，这样日志会被存储在指定的文件中；</li>
+<li>filemode：   文件打开方式，在指定了filename时使用这个参数，默认值为“w”还可指定为“a”；</li>
+<li>format：      指定handler使用的日志显示格式；</li>
+<li>datefmt：    指定日期时间格式。， 格式参考strftime时间格式化,同time.strftime()</li>
+<li>level：        设置rootlogger的日志级别</li>
+<li>stream：     用指定的stream创建StreamHandler。可以指定输出到sys.stderr,</li>
+<li>sys.stdout或者文件，默认为sys.stderr。若同时列出了filename和stream两个参数，则stream参数会被忽略。</li>
+</ul>
+<p>level: 设置日志级别，默认为logging.WARNING<br>级别|对应的值<br>-|-<br>CRITICAL|50<br>ERROR   |40<br>WARNING |30<br>INFO    |20<br>DEBUG    |10<br>NOTSET    |0<br>可以给日志对象(Logger Instance)设置日志级别，低于该级别的日志消息将会被忽略，也可以给Hanlder设置日志级别，对于低于该级别的日志消息, Handler也会忽略。</p>
+<h2 id="format参数中可能用到的格式化信息："><a href="#format参数中可能用到的格式化信息：" class="headerlink" title="format参数中可能用到的格式化信息："></a>format参数中可能用到的格式化信息：</h2><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%(name)s</td>
+<td>Logger的名字</td>
+</tr>
+<tr>
+<td>%(levelno)s</td>
+<td>数字形式的日志级别</td>
+</tr>
+<tr>
+<td>%(levelname)s</td>
+<td>文本形式的日志级别</td>
+</tr>
+<tr>
+<td>%(pathname)s</td>
+<td>调用日志输出函数的模块的完整路径名，可能没有</td>
+</tr>
+<tr>
+<td>%(filename)s</td>
+<td>调用日志输出函数的模块的文件名</td>
+</tr>
+<tr>
+<td>%(module)s</td>
+<td>调用日志输出函数的模块名</td>
+</tr>
+<tr>
+<td>%(funcName)s</td>
+<td>调用日志输出函数的函数名</td>
+</tr>
+<tr>
+<td>%(lineno)d</td>
+<td>调用日志输出函数的语句所在的代码行</td>
+</tr>
+<tr>
+<td>%(created)f</td>
+<td>当前时间，用UNIX标准的表示时间的浮 点数表示</td>
+</tr>
+<tr>
+<td>%(relativeCreated)d</td>
+<td>输出日志信息时的，自Logger创建以 来的毫秒数</td>
+</tr>
+<tr>
+<td>%(asctime)s</td>
+<td>字符串形式的当前时间。默认格式是 “2003-07-08 16:49:45,896”。逗号后面的是毫秒</td>
+</tr>
+<tr>
+<td>%(thread)d</td>
+<td>线程ID。可能没有</td>
+</tr>
+<tr>
+<td>%(threadName)s</td>
+<td>线程名。可能没有</td>
+</tr>
+<tr>
+<td>%(process)d</td>
+<td>进程ID。可能没有</td>
+</tr>
+<tr>
+<td>%(message)s</td>
+<td>用户输出的消息</td>
+</tr>
+</tbody></table>
+<h2 id="python中时间日期格式化符号："><a href="#python中时间日期格式化符号：" class="headerlink" title="python中时间日期格式化符号："></a>python中时间日期格式化符号：</h2><ul>
+<li>%y 两位数的年份表示（00-99）</li>
+<li>%Y 四位数的年份表示（000-9999）</li>
+<li>%m 月份（01-12）</li>
+<li>%d 月内中的一天（0-31）</li>
+<li>%H 24小时制小时数（0-23）</li>
+<li>%I 12小时制小时数（01-12）</li>
+<li>%M 分钟数（00=59）</li>
+<li>%S 秒（00-59）</li>
+<li>%a 本地简化星期名称</li>
+<li>%A 本地完整星期名称</li>
+<li>%b 本地简化的月份名称</li>
+<li>%B 本地完整的月份名称</li>
+<li>%c 本地相应的日期表示和时间表示</li>
+<li>%j 年内的一天（001-366）</li>
+<li>%p 本地A.M.或P.M.的等价符</li>
+<li>%U 一年中的星期数（00-53）星期天为星期的开始</li>
+<li>%w 星期（0-6），星期天为星期的开始</li>
+<li>%W 一年中的星期数（00-53）星期一为星期的开始</li>
+<li>%x 本地相应的日期表示</li>
+<li>%X 本地相应的时间表示</li>
+<li>%Z 当前时区的名称</li>
+<li>%% %号本身</li>
+</ul>
+
       
 
       
@@ -203,7 +332,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/工具//" class="article-tag-list-link color3">工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -253,7 +404,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://blackazrael.github.io/tags/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://blackazrael.github.io/2021/01/12/python%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -265,6 +416,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2021/01/12/cpp%E6%97%A5%E5%BF%97spdlog/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          cpp日志spdlog
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/01/07/WindowsTerminal/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WindowsTerminal</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -286,7 +456,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%97%A5%E5%BF%97%E5%90%8C%E6%97%B6%E8%BE%93%E5%87%BA%E5%88%B0%E6%8E%A7%E5%88%B6%E5%8F%B0%E5%92%8C%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">将日志同时输出到控制台和文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA"><span class="toc-number">2.2.</span> <span class="toc-text">控制台输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%BE%93%E5%87%BA"><span class="toc-number">2.3.</span> <span class="toc-text">文件输出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BF%9B%E7%A8%8Bpython%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA"><span class="toc-number">3.</span> <span class="toc-text">多进程python日志输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#logging-basicConfig-%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E5%85%B7%E4%BD%93%E5%8F%82%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">logging.basicConfig()函数中的具体参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#format%E5%8F%82%E6%95%B0%E4%B8%AD%E5%8F%AF%E8%83%BD%E7%94%A8%E5%88%B0%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BF%A1%E6%81%AF%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">format参数中可能用到的格式化信息：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python%E4%B8%AD%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%AC%A6%E5%8F%B7%EF%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">python中时间日期格式化符号：</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -328,7 +498,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
